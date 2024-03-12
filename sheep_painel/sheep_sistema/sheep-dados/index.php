@@ -1,11 +1,11 @@
-  <?php  
+  <?php 
   $editar = '78455';
   $sheep->Leitura('dados', "WHERE id = :id", "id={$editar}");
   $dadosConfig = Formata::Resultado($sheep);
   if($dadosConfig){
     foreach($sheep->getResultado() as $dados);
     $dados = (object) $dados;
-  } 
+  }
     
   ?>
    <!-- Main Content -->
@@ -158,6 +158,14 @@
 
                    </div>
 
+                   <div class="form-group row mb-4">
+                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Token Correios</label>
+                     <div class="col-md-7">
+                       <input type="text"  class="form-control" name="token_correios" placeholder="Digite o Token!" value="<?= $dados->token_correios ? $dados->token_correios : null;?>">
+                     </div>
+
+                   </div>
+
                    < <div class="form-group row mb-4">
                   <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Estado</label>
                   <div class="col-sm-12 col-md-7">
@@ -195,7 +203,7 @@
                   </div>
                 </div>
 
-                   <input type="hidden" name="usuario" value="<?= $_SESSION['sheep_user']['id']?>">
+                  <input type="hidden" name="usuario" value="<?= $_SESSION['sheep_user']['id']?>">
                    <input type="hidden" name="sheep_firewall" value="<?= $_SESSION['_sheep_firewall']?>">
                    <input type="hidden" name="tipo" value="configuracao">
                    <input type="hidden" name="id" value="<?=$editar?>">

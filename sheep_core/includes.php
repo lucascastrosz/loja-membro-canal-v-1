@@ -40,6 +40,7 @@ define('SHEEP_IMG_URL', '/sheep_painel/sheep-imagens/');
 
 //PASTA GERAL DE USUARIOS
 define('SHEEP_IMG_USUARIOS', '../fotos-usuarios/');
+define('SHEEP_IMG_LOGOMARCA', '../img-logo/');
 
 define('SHEEP_IMG_LOGO', '../../../sheep_temas/sheep-imagens-logo/');
 
