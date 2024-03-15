@@ -39,57 +39,56 @@ class Dados{
      */
 
     
-    private function atualizaLogo(): void
-    {
-        if(isset($this->data['logo'])){
+     private function atualizaLogo(): void 
+     {
+         if(isset($this->data['logo'])){
             $ler = new Ler();
-            $ler->Leitura(self::BD, "WHERE id :id", "id={$this->id}");
+            $ler->Leitura(self::BD, "WHERE id = :id", "id={$this->id}");
             if($ler->getResultado()){
-                $logo = SHEEP_IMG_LOGOMARCA . $ler->getResultado()[0]['logo'];
-
-                    if(file_exists($logo) && !is_dir($logo)){
-                        unlink($logo);
-                    }
-
-                    $enviaLogo = new Uploads(SHEEP_IMG_LOGOMARCA);
-                    $urlLogo = Formata::Name('nome') . Formata::Name(date('Y-m-d H:i:s') . '-logo-'.time());
-                    $enviaLogo->Image($this->data['logo'], $urlLogo); 
+             $logo = SHEEP_IMG_LOGOMARCA . $ler->getResultado()[0]['logo'];
+ 
+               if(file_exists($logo) && !is_dir($logo)){
+                  unlink($logo);
+               }
+ 
+               $enviaLogo = new Uploads(SHEEP_IMG_LOGOMARCA);
+               $urlLogo =  Formata::Name('nome') . Formata::Name(date('Y-m-d H:i:s') . '-logo-'.time());
+               $enviaLogo->Image($this->data['logo'], $urlLogo);
+ 
             }
-        }
-
-        if(isset($enviaLogo) && $enviaLogo->getResult()){
-            $this->data['logo'] = $enviaLogo->getResult();
-        } else {
-            unset($this->data['logo']);
-        }
-
-    }
-
-    private function atualizaFavicon(): void
-    {
-        if(isset($this->data['icone'])){
-            $ler = new Ler();
-            $ler->Leitura(self::BD, "WHERE id :id", "id={$this->id}");
-            if($ler->getResultado()){
-                $icone = SHEEP_IMG_LOGOMARCA . $ler->getResultado()[0]['icone'];
-
-                    if(file_exists($icone) && !is_dir($icone)){
-                        unlink($icone);
-                    }
-
-                    $enviaIcone = new Uploads(SHEEP_IMG_LOGOMARCA);
-                    $urlIcone = Formata::Name('nome') . Formata::Name(date('Y-m-d H:i') . '-icone-'.time());
-                    $enviaIcone->Image($this->data['icone'], $urlIcone); 
-            }
-        }
-
-        if(isset($enviaIcone) && $enviaIcone->getResult()){
-            $this->data['icone'] = $enviaIcone->getResult();
-        } else {
-            unset($this->data['icone']);
-        }
-
-    }
+         }
+ 
+         if(isset($enviaLogo) && $enviaLogo->getResult()){
+             $this->data['logo'] = $enviaLogo->getResult();
+         }else{
+             unset($this->data['logo']);
+         }
+     }
+     private function atualizaFavicon(): void 
+     {
+         if(isset($this->data['icone'])){
+             $ler = new Ler();
+             $ler->Leitura(self::BD, "WHERE id = :id", "id={$this->id}");
+             if($ler->getResultado()){
+              $icone = SHEEP_IMG_LOGOMARCA . $ler->getResultado()[0]['icone'];
+  
+                if(file_exists($icone) && !is_dir($icone)){
+                   unlink($icone);
+                }
+  
+                $enviaIcone = new Uploads(SHEEP_IMG_LOGOMARCA);
+                $urlIcone =  Formata::Name('nome') . Formata::Name(date('Y-m-d H:i') . '-icone-'.time());
+                $enviaIcone->Image($this->data['icone'], $urlIcone);
+  
+             }
+          }
+  
+          if(isset($enviaIcone) && $enviaIcone->getResult()){
+              $this->data['icone'] = $enviaIcone->getResult();
+          }else{
+              unset($this->data['icone']);
+          }
+     }
 
 
 

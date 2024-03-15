@@ -53,6 +53,9 @@
                      <div class="col-sm-12 col-md-7">
                        <div id="image-preview" class="image-preview">
                          <label for="image-upload" id="image-label">Buscar Imagem</label>
+                        <?php if ($dados->logo) { ?>
+                          <img src="<?=SHEEP_IMG_LOGOMARCA . $dados->logo?>" alt="<?=SITENAME?>" style="width:100%; height:auto;">
+                        <?php } ?>
 
                          <input type="file" name="logo" id="image-upload" />
                        </div>
@@ -65,8 +68,9 @@
                      <div class="col-sm-12 col-md-7">
                        <div id="image-preview" class="image-preview">
                          <label for="image-upload2" id="image-label">Favicon</label>
-
-                         
+                          <?php if ($dados->icone) { ?>
+                          <img src="<?=SHEEP_IMG_LOGOMARCA . $dados->icone?>" alt="<?=SITENAME?>" style="width:100%; height:auto;">
+                          <?php } ?>                         
                           <img src="assets/img/sem-imagem.png" style="width:100%; height:auto;">
                          
                        </div>
