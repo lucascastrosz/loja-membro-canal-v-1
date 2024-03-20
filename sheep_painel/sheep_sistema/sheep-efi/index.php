@@ -71,8 +71,8 @@ if($bancoEfi){
                      <div class="col-sm-12 col-md-7">
                        <select class="form-control select2 load_estados" name="status">
                        
-                         <option value="false" <?= $efi->status == 'false' ? 'selected' : null; ?>>Ativo</option>
-                         <option value="true" <?= $efi->status == 'true' ? 'selected' : null; ?>>Homologação</option>
+                         <option value="false" <?=$efi->status == 'false' ? 'selected' : null;?>>Ativo</option>
+                         <option value="true"  <?=$efi->status == 'true' ? 'selected' : null;?>>Homologação</option>
                         
                        </select>
                      </div>
